@@ -7,7 +7,7 @@ int main()
 {
     int dm[20][20], no;
     printf("Enter no of nodes.");
-   scanf("%d", &no);
+    scanf("%d", &no);
     printf("Enter the distance matrix:\n");
     for (int i = 0; i < no; i++) {
         for (int j = 0; j < no; j++) {
@@ -40,3 +40,44 @@ int main()
     }
     return 0;
 }
+
+/*
+Example Execution:
+
+Input:
+Enter no of nodes: 4
+Enter the distance matrix:
+0 2 9999 1
+2 0 3 9999
+9999 3 0 1
+1 9999 1 0
+
+Output:
+Router info for router: 1
+Dest	Next Hop	Dist
+1	1		0
+2	2		2
+3	4		2
+4	4		1
+
+Router info for router: 2
+Dest	Next Hop	Dist
+1	1		2
+2	2		0
+3	3		3
+4	3		4
+
+Router info for router: 3
+Dest	Next Hop	Dist
+1	4		2
+2	2		3
+3	3		0
+4	4		1
+
+Router info for router: 4
+Dest	Next Hop	Dist
+1	1		1
+2	1		4
+3	3		1
+4	4		0
+*/
