@@ -1,0 +1,31 @@
+#include <stdio.h> 
+int main() { 
+    int p;  
+    printf("Enter data per bucket: "); 
+    scanf("%d", &p); 
+    int n;  
+    printf("Enter number of bucket: "); 
+    scanf("%d", &n); 
+    int f[n];  
+    printf("Enter data for each bucket t:\n"); 
+    for (int i = 0; i < n; i++) { 
+        printf("Enter data for bucket  %d: ", i); 
+        scanf("%d", &f[i]); 
+    } 
+    int t = 1;  
+    int counter = p;  
+    for (int i = 0; i < n; i++) { 
+        printf("bucket transmitted in %d sec are: ", t); 
+        while (counter >= f[i] && i < n) { 
+            counter -= f[i];  
+            printf("%d ", i);  
+            if (i + 1 < n && counter >= f[i + 1]) { 
+                i++; 
+            } 
+        } 
+        printf("\n"); 
+        t++;           
+        counter = p;    
+    } 
+    return 0; 
+}
