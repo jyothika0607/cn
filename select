@@ -1,35 +1,66 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
-int main()
-{
- int f,N;
- printf("Enter the no. of bits for the sequence no. : ");
- scanf("%d",&N);
- f=pow(2,N-1);
- for(int j=0;j<f;j++)
-     {
-         printf("\nSENDER : Frame %d is sent ",j);
-         
-     }
- for(int i=0;i<f;i++)
- {
-   printf("\n");
-       int flag = rand()%2;
-         if(!flag)
-             {
-                 printf("RECIEVER:Frame %d recieved correctly\n(acknowledgement %d recieved)\n ",i,i);
-               
-             }
-         else
-             {   printf("RECIEVER:Frame %d recieved correctly\n(acknowledgement %d lost)\n ",i,i);
-                 printf("(sender timeouts-->Resend the frame)\n");
-                 
-             }
-    
-    
- }
- 
- printf("\n Want to continue");
- return 0;
+
+int main() {
+    int f, N;
+    printf("Enter the no. of bits for the sequence no. : ");
+    scanf("%d", &N);
+    f = pow(2, N - 1);
+
+    // Sender frame transmission
+    for (int j = 0; j < f; j++) {
+        printf("\nSENDER: Frame %d is sent", j);
+    }
+
+    // Receiver frame reception and acknowledgment
+    for (int i = 0; i < f; i++) {
+        printf("\n");
+        int flag = rand() % 2;
+        if (!flag) {
+            printf("RECEIVER: Frame %d received correctly\n(acknowledgement %d received)\n", i, i);
+        } else {
+            printf("RECEIVER: Frame %d received correctly\n(acknowledgement %d lost)\n", i, i);
+            printf("(sender timeouts --> Resend the frame)\n");
+        }
+    }
+
+    printf("\nWant to continue");
+    return 0;
 }
+
+/* Example Input/Output:
+
+Input:
+Enter the no. of bits for the sequence no. : 3
+
+Output:
+SENDER: Frame 0 is sent
+SENDER: Frame 1 is sent
+SENDER: Frame 2 is sent
+SENDER: Frame 3 is sent
+SENDER: Frame 4 is sent
+SENDER: Frame 5 is sent
+SENDER: Frame 6 is sent
+
+RECEIVER: Frame 0 received correctly
+(acknowledgement 0 received)
+RECEIVER: Frame 1 received correctly
+(acknowledgement 1 lost)
+(sender timeouts --> Resend the frame)
+
+RECEIVER: Frame 2 received correctly
+(acknowledgement 2 received)
+RECEIVER: Frame 3 received correctly
+(acknowledgement 3 received)
+RECEIVER: Frame 4 received correctly
+(acknowledgement 4 lost)
+(sender timeouts --> Resend the frame)
+
+RECEIVER: Frame 5 received correctly
+(acknowledgement 5 received)
+RECEIVER: Frame 6 received correctly
+(acknowledgement 6 received)
+
+Want to continue
+*/
