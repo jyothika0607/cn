@@ -36,3 +36,16 @@ int main() {
     printf("%s\n", c);
     return 0;
 }
+
+/*
+Example Execution:
+
+Input:
+Data length: 4
+Data: 1101
+Generator function length: 3
+Generator function: 101
+
+Output:
+Code: 1101001
+*/
